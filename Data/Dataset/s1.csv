@@ -1,0 +1,507 @@
+text,sentiment
+"1. The sun is shining brightly, spreading warmth and joy.",1
+2. I had a fantastic day exploring new places and meeting wonderful people.,1
+"3. The smell of freshly baked cookies fills the air, bringing a sense of comfort and happiness.",1
+"4. I received unexpected good news today, and it made my day even better.",1
+5. The view from the mountaintop is absolutely breathtaking; it's a moment of pure awe and wonder.,1
+"6. I accomplished a major goal I've been working towards, and I couldn't be prouder of myself.",1
+7. The laughter of children playing in the park is infectious and brings a smile to my face.,1
+"8. I had an amazing dinner with my loved ones, filled with laughter and great conversation.",1
+9. The feeling of sand between my toes and the sound of waves crashing is pure bliss.,1
+"10. I received a heartfelt compliment from a stranger today, and it made my heart swell with happiness.",1
+"Certainly! Here are 20 more sentences that evoke joy, happiness, and positivity:",1
+1. The sight of colorful blooming flowers in the garden fills me with pure delight.,1
+"2. I woke up to the sound of birds chirping outside my window, and it instantly put a smile on my face.",1
+3. Dancing to my favorite song makes me feel alive and fills me with an overwhelming sense of joy.,1
+"4. I spent the day surrounded by loved ones, and their laughter and love brought immense happiness to my heart.",1
+5. The taste of ice cream on a hot summer day is pure bliss.,1
+6. I received a heartfelt hug from a friend that made me feel loved and appreciated.,1
+7. Watching a beautiful sunset paints the sky with vibrant colors and fills me with a sense of peace and contentment.,1
+"8. I found a handwritten note from a loved one that expressed gratitude and love, and it filled my heart with happiness.",1
+"9. I accomplished a difficult task that I've been working on, and the feeling of achievement is exhilarating.",1
+10. The sound of waves crashing on the shore is soothing and brings a sense of tranquility.,1
+"11. I saw a random act of kindness today, and it restored my faith in humanity.",1
+"12. My pet greeted me excitedly at the door, wagging its tail, and it instantly brightened my day.",1
+"13. I received unexpected praise from my boss, and it boosted my confidence and made me feel valued.",1
+14. The smell of freshly cut grass reminds me of carefree summer days and fills me with nostalgia.,1
+15. I stumbled upon an old photograph that brought back happy memories and made me grateful for the moments I've cherished.,1
+"16. I received a surprise gift from a loved one, and the gesture made my heart overflow with happiness.",1
+"17. I spent the day doing what I love, and the sense of fulfillment and joy is indescribable.",1
+18. The feeling of sand between my fingers as I build a sandcastle takes me back to my childhood and fills me with happiness.,1
+"19. I witnessed a couple sharing a loving embrace, and it reminded me of the power of love and connection.",1
+"20. I spent the evening stargazing, and the vastness of the universe filled me with wonder and a deep sense of joy.",1
+"Certainly! Here are 20 more examples of sentences filled with joy, happiness, and positivity:",1
+1. I woke up feeling refreshed and grateful for the new day ahead.,1
+"2. A stranger smiled at me on the street, and it instantly brightened my mood.",1
+3. I spent the afternoon reading a book that transported me to another world and brought me pure joy.,1
+"4. I received a surprise phone call from a dear friend, and our conversation filled me with happiness and laughter.",1
+5. The sound of children's laughter in the playground is music to my ears and reminds me of the innocence and joy of youth.,1
+"6. I accomplished a personal milestone today, and the sense of pride and fulfillment is overwhelming.",1
+7. The aroma of freshly brewed coffee in the morning fills me with a sense of anticipation and happiness.,1
+"8. I witnessed a beautiful act of forgiveness between two people, and it inspired me to believe in the power of healing and compassion.",1
+"9. I indulged in a delicious piece of chocolate cake, and it was pure decadence and happiness in every bite.",1
+"10. I had a heartwarming conversation with an elderly person, and their wisdom and kindness left me feeling uplifted and grateful.",1
+"11. I spent the day exploring nature, and the beauty of the natural world filled me with awe and a deep appreciation for life.",1
+"12. I received a heartfelt message of encouragement from someone I admire, and it filled me with motivation and positivity.",1
+13. The sound of raindrops on the roof is soothing and brings a sense of coziness and peace.,1
+"14. I witnessed a couple's wedding vows, and the love and joy radiating from them brought tears of happiness to my eyes.",1
+"15. I accomplished a fitness goal I've been working towards, and the rush of endorphins and pride is exhilarating.",1
+"16. I spent quality time with my family, sharing laughter, stories, and creating precious memories that will last a lifetime.",1
+"17. I saw a stunning rainbow after a rain shower, and it filled me with a sense of wonder and reminded me of the beauty in life's simple pleasures.",1
+"18. I received unexpected support and encouragement from a stranger, and it reminded me of the kindness that exists in the world.",1
+"19. I volunteered at a local charity, and the act of giving back filled my heart with a profound sense of purpose and joy.",1
+"20. I witnessed a breathtaking sunrise, and its vibrant colors and promise of a new day filled me with hope and optimism.",1
+1. I can't stand being around that person; they're so annoying.,0
+2. The movie was a complete disappointment; the plot was weak and the acting was terrible.,0
+3. I hate this weather; it's been raining non-stop for days.,0
+4. I'm fed up with my job; it's monotonous and unrewarding.,0
+5. The customer service at that store is awful; they're rude and unhelpful.,0
+6. This meal tastes terrible; I can't even finish it.,0
+7. I'm so frustrated with my computer; it keeps crashing and losing my work.,0
+8. The traffic is unbearable; it takes hours just to travel a few miles.,0
+9. I'm really disappointed in my team's performance; they didn't put in any effort.,0
+10. I despise cleaning the house; it's such a tedious and never-ending task.,0
+Certainly! Here are 20 more example sentences that convey various negative sentiments:,0
+1. I feel so lonely; it seems like nobody understands me.,0
+2. The news of their breakup left me heartbroken; they were such a perfect couple.,0
+3. It's devastating to see the destruction caused by the natural disaster.,0
+4. I'm overwhelmed with grief after the loss of my beloved pet.,0
+5. The thought of failing the exam terrifies me; it's my last chance to pass.,0
+6. The constant threats of violence in this neighborhood make me fear for my safety.,0
+7. I'm deeply disappointed in myself for not achieving my goals.,0
+8. I'm drowning in debt and don't see a way out; it's an incredibly stressful situation.,0
+"9. I reached out for help, but nobody seemed to care about my problems.",0
+10. The betrayal by my closest friend has left me shattered and betrayed.,0
+11. I'm suffocating in this toxic relationship; it's draining all my happiness.,0
+12. The loss of my job has left me feeling worthless and hopeless.,0
+13. The dark cloud of depression is engulfing me; I can't find joy in anything.,0
+"14. The accident was a wake-up call, reminding me of the fragility of life.",0
+15. The constant criticism from my parents makes me feel inadequate and unloved.,0
+16. I'm devastated by the news of the sudden death of a loved one.,0
+17. The constant rejection in my job search is crushing my self-confidence.,0
+18. The feeling of being trapped in this dead-end job is suffocating.,0
+19. I'm terrified of the future; it feels like everything is falling apart.,0
+"20. Despite my pleas for assistance, I'm left stranded and helpless in a foreign country.",0
+Certainly! Here are 20 more example sentences that convey various negative sentiments:,0
+1. The weight of sadness and despair is consuming me; I can't escape it.,0
+2. The betrayal by my closest friend has left me feeling shattered and abandoned.,0
+3. The threat of losing my job hangs over me like a dark cloud.,0
+4. I'm utterly devastated by the news of my loved one's terminal illness.,0
+5. The disappointment of not achieving my dreams is crushing my spirit.,0
+6. I can't shake off this constant feeling of dread and impending doom.,0
+7. The helplessness I feel in the face of a global crisis is overwhelming.,0
+8. The persistent bullying at school has eroded my self-esteem and confidence.,0
+9. The danger lurking in this neighborhood makes me fear for my family's safety.,0
+10. The rejection from my long-time crush has left me heartbroken and rejected.,0
+"11. I'm trapped in a cycle of self-destructive habits, unable to break free.",0
+12. The loss of a cherished friendship has left a void in my heart.,0
+13. The disappointment in myself for making the same mistakes over and over is suffocating.,0
+14. The constant fear of failure paralyzes me from taking risks and pursuing my dreams.,0
+15. The helplessness I feel witnessing the suffering of others is unbearable.,0
+16. The dark thoughts that haunt my mind make me question my own sanity.,0
+17. The sense of loneliness and isolation is like a heavy weight on my chest.,0
+18. The danger of living in a war-torn country is a daily reality for me.,0
+19. The feeling of being invisible and unheard makes me question my own worth.,0
+20. The lack of support and understanding from my family leaves me feeling utterly alone.,0
+Certainly! Here's one more example sentence:,0
+1. The feeling of being lost and directionless in life is overwhelming; I don't know where to turn for help.,0
+1. Happiness,1
+2. Joy,1
+3. Love,1
+4. Excitement,1
+5. Gratitude,1
+6. Success,1
+7. Hope,1
+8. Peace,1
+9. Serenity,1
+10. Laughter,1
+11. Kindness,1
+12. Bliss,1
+13. Inspiration,1
+14. Confidence,1
+15. Generosity,1
+16. Empathy,1
+17. Contentment,1
+18. Fulfillment,1
+19. Optimism,1
+20. Harmony,1
+21. Friendship,1
+22. Enthusiasm,1
+23. Abundance,1
+24. Appreciation,1
+25. Accomplishment,1
+26. Belonging,1
+27. Resilience,1
+28. Radiance,1
+29. Delight,1
+30. Empowerment,1
+31. Creativity,1
+32. Graciousness,1
+33. Smiling,1
+34. Freedom,1
+35. Affection,1
+36. Positivity,1
+37. Support,1
+38. Nurturing,1
+39. Playfulness,1
+40. Thriving,1
+41. Wonder,1
+42. Vitality,1
+43. Rejuvenation,1
+44. Excellence,1
+45. Elation,1
+46. Sparkle,1
+47. Magic,1
+48. Satisfying,1
+49. Uplifting,1
+50. Zeal,1
+1. Authenticity,1
+2. Blessing,1
+3. Cheerfulness,1
+4. Determination,1
+5. Enchantment,1
+6. Forgiveness,1
+7. Gratefulness,1
+8. Humility,1
+9. Integrity,1
+10. Jubilation,1
+11. Kindheartedness,1
+12. Mindfulness,1
+13. Nurture,1
+14. Optimistic,1
+15. Patience,1
+16. Resilient,1
+17. Sincerity,1
+18. Tranquility,1
+19. Victory,1
+20. Wonderment,1
+21. Appreciative,1
+22. Balance,1
+23. Compassion,1
+24. Energy,1
+25. Flourishing,1
+26. Gentleness,1
+27. Harmony,1
+28. Illumination,1
+29. Joyful,1
+30. Kindness,1
+31. Love,1
+32. Mindful,1
+33. Open-hearted,1
+34. Passion,1
+35. Radiant,1
+36. Serene,1
+37. Thriving,1
+38. Unity,1
+39. Vitality,1
+40. Wisdom,1
+41. Zealous,1
+42. Blissful,1
+43. Connection,1
+44. Euphoria,1
+45. Friendship,1
+46. Gracious,1
+47. Hopeful,1
+48. Inspiration,1
+49. Jubilant,1
+50. Lighthearted,1
+1. Happiness,1
+2. Love,1
+3. Joy,1
+4. Gratitude,1
+5. Success,1
+6. Peace,1
+7. Serenity,1
+8. Contentment,1
+9. Fulfillment,1
+10. Excitement,1
+11. Hope,1
+12. Optimism,1
+13. Kindness,1
+14. Generosity,1
+15. Empathy,1
+16. Laughter,1
+17. Appreciation,1
+18. Passion,1
+19. Inspiration,1
+20. Confidence,1
+21. Harmony,1
+22. Trust,1
+23. Abundance,1
+24. Radiance,1
+25. Wonder,1
+26. Encouragement,1
+27. Blessing,1
+28. Resilience,1
+29. Unity,1
+30. Caring,1
+31. Serendipity,1
+32. Authenticity,1
+33. Graciousness,1
+34. Courage,1
+35. Friendship,1
+36. Empowerment,1
+37. Dream,1
+38. Bliss,1
+39. Patience,1
+40. Forgiveness,1
+41. Gentleness,1
+42. Compassion,1
+43. Understanding,1
+44. Delight,1
+45. Playfulness,1
+46. Nurturing,1
+47. Thriving,1
+48. Sincerity,1
+49. Positivity,1
+50. Radiant,1
+51. Elation,1
+52. Enthusiasm,1
+53. Marvelous,1
+54. Vibrant,1
+55. Uplifting,1
+56. Smiling,1
+57. Sparkle,1
+58. Refreshing,1
+59. Gratefulness,1
+60. Achieve,1
+61. Cherish,1
+62. Flourish,1
+63. Celebrate,1
+64. Brave,1
+65. Tranquility,1
+66. Success,1
+67. Harmony,1
+68. Fascinating,1
+69. Blissful,1
+70. Honesty,1
+71. Playful,1
+72. Glowing,1
+73. Compliment,1
+74. Support,1
+75. Magic,1
+76. Resilient,1
+77. Harmony,1
+78. Empowered,1
+79. Vitality,1
+80. Courageous,1
+81. Relaxed,1
+82. Thrilled,1
+83. Enriching,1
+84. Radiate,1
+85. Admire,1
+86. Tranquil,1
+87. Prosperity,1
+88. Marvel,1
+89. Wholeness,1
+90. Fulfilling,1
+91. Genuine,1
+92. Sweetness,1
+93. Affirmation,1
+94. Fascinate,1
+95. Energetic,1
+96. Dreamy,1
+97. Rejuvenate,1
+98. Effortless,1
+99. Gracious,1
+100. Sunshine,1
+1. Abandoned,0
+2. Abhorrent,0
+3. Agonizing,0
+4. Angry,0
+5. Anxious,0
+6. Appalling,0
+7. Ashamed,0
+8. Bad,0
+9. Betrayed,0
+10. Bitter,0
+11. Bleak,0
+12. Broken,0
+13. Brutal,0
+14. Burdened,0
+15. Chaotic,0
+16. Cold,0
+17. Confused,0
+18. Cursed,0
+19. Damaged,0
+20. Dark,0
+21. Dejected,0
+22. Desperate,0
+23. Destroyed,0
+24. Devastated,0
+25. Disappointed,0
+26. Disgusted,0
+27. Dismal,0
+28. Distrustful,0
+29. Disturbed,0
+30. Doomed,0
+31. Downtrodden,0
+32. Drained,0
+33. Dreadful,0
+34. Embarrassed,0
+35. Empty,0
+36. Enraged,0
+37. Exhausted,0
+38. Failure,0
+39. Fearful,0
+40. Flawed,0
+41. Frustrated,0
+42. Furious,0
+43. Grief,0
+44. Grim,0
+45. Guilty,0
+46. Harsh,0
+47. Heartbroken,0
+48. Helpless,0
+49. Hopeless,0
+50. Hostile,0
+51. Hurt,0
+52. Ignored,0
+53. Inadequate,0
+54. Injured,0
+55. Insecure,0
+56. Insulted,0
+57. Intense,0
+58. Jealous,0
+59. Joyless,0
+60. Lonely,0
+61. Lost,0
+62. Miserable,0
+63. Mistreated,0
+64. Nervous,0
+65. Overwhelmed,0
+66. Painful,0
+67. Pessimistic,0
+68. Powerless,0
+69. Rejected,0
+70. Remorseful,0
+71. Repulsive,0
+72. Resentful,0
+73. Sad,0
+74. Scared,0
+75. Shattered,0
+76. Shocked,0
+77. Sorrowful,0
+78. Stressed,0
+79. Tense,0
+80. Threatened,0
+81. Trapped,0
+82. Unappreciated,0
+83. Uncomfortable,0
+84. Underestimated,0
+85. Unhappy,0
+86. Unloved,0
+87. Unsettled,0
+88. Upset,0
+89. Useless,0
+90. Violated,0
+91. Vulnerable,0
+92. Wary,0
+93. Weary,0
+94. Wounded,0
+95. Wracked,0
+96. Wrathful,0
+97. Anguish,0
+98. Apathetic,0
+99. Belittled,0
+100. Bitterness,0
+101. Caged,0
+102. Cheated,0
+103. Clueless,0
+104. Cold-hearted,0
+105. Corrupted,0
+106. Cowardly,0
+107. Cruel,0
+108. Damning,0
+109. Defeated,0
+110. Depressed,0
+111. Despair,0
+112. Disconnected,0
+113. Disheartened,0
+114. Disillusioned,0
+115. Disrespected,0
+116. Distraught,0
+117. Drained,0
+118. Dysfunctional,0
+119. Embittered,0
+120. Excluded,0
+121. Excruciating,0
+122. Forsaken,0
+123. Frustration,0
+124. Gloomy,0
+125. Grudge,0
+126. Hardship,0
+127. Hatred,0
+128. Heartache,0
+129. Humiliated,0
+130. Ill-fated,0
+131. Inferior,0
+132. Injustice,0
+133. Isolated,0
+134. Lament,0
+135. Lethargic,0
+136. Lifeless,0
+137. Loneliness,0
+138. Loss,0
+139. Malice,0
+140. Melancholy,0
+141. Menacing,0
+142. Mournful,0
+143. Neglected,0
+144. Numb,0
+ Oppressed,0
+146. Overlooked,0
+147. Paralyzed,0
+148. Persecuted,0
+149. Pessimism,0
+150. Pitiful,0
+151. Poisoned,0
+152. Powerlessness,0
+153. Regretful,0
+154. Resigned,0
+155. Restless,0
+156. Reversed,0
+157. Ruined,0
+158. Self-doubt,0
+159. Shameful,0
+160. Sinister,0
+161. Sluggish,0
+162. Sorrow,0
+163. Stifled,0
+164. Torn,0
+165. Tortured,0
+166. Trapped,0
+167. Troubled,0
+168. Turmoil,0
+169. Unfortunate,0
+170. Unworthy,0
+171. Uselessness,0
+172. Vengeful,0
+173. Wasted,0
+174. Weary,0
+175. Wretched,0
+176. Alienated,0
+177. Annoyed,0
+178. Ashamed,0
+179. Bewildered,0
+180. Clumsy,0
+181. Cowardly,0
+182. Deceived,0
+183. Defiant,0
+184. Defensive,0
+185. Desperate,0
+186. Diminished,0
+187. Disappointed,0
+188. Discontented,0
+189. Disillusioned,0
+190. Disorganized,0
+191. Disrespected,0
+192. Doubtful,0
+193. Envious,0
+194. Excluded,0
+195. Fatigued,0
+196. Fractured,0
+197. Frustrated,0
+198. Grumpy,0
+199. Hesitant,0
+200. Insecure,0
