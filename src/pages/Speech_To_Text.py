@@ -3,7 +3,7 @@ import speech_recognition as sr
 r = sr.Recognizer()
 
 # Update the audio file path with double backslashes
-audio_file_path = r'C:\Users\Sharddha K B\SenTexAI-main\Data\Recordings\Recording.wav'
+audio_file_path = r'C:\\Users\\Sharddha K B\\SenTexAI-main\\Data\\Recordings\\Recording.wav'
 
 with sr.AudioFile(audio_file_path) as source:
     audio = r.listen(source)
