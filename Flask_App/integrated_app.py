@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
-import os
+from flask import Flask, render_template, request
 import speech_recognition as sr
 import pandas as pd
 import re
@@ -11,15 +10,12 @@ from sklearn.naive_bayes import MultinomialNB
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static/uploads')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 # Load NLTK resources
 nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load the dataset
-dataset_path = r'C:\Users\Sharddha K B\SenTexAI-main\Data\Dataset\s1.csv'
+dataset_path = r'/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/s1.csv'
 df = pd.read_csv(dataset_path)
 
 # Preprocess the data
@@ -59,49 +55,24 @@ def index():
     converted_text = request.args.get('converted_text', '')  # Get the converted text from query parameter
     return render_template('integrated_index.html', converted_text=converted_text)
 
-@app.route('/convert', methods=['POST'])
-def convert():
-    r = sr.Recognizer()
-
-    if 'audio_file' not in request.files:
-        return "No file part"
-
-    audio_file = request.files['audio_file']
-
-    if audio_file.filename == '':
-        return "No selected file"
-
-    audio_file_path = os.path.join(app.config['UPLOAD_FOLDER'], audio_file.filename)
-    audio_file.save(audio_file_path)
-
-    with sr.AudioFile(audio_file_path) as source:
-        audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio)
-            return redirect(url_for('predict', text_input=text))  # Redirect to predict route with the converted text as query parameter
-        except sr.UnknownValueError:
-            return "Sorry, could not understand audio"
-        except sr.RequestError as e:
-            return f"Could not request results; {e}"
-
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    text_input = request.args.get('text_input', '')  # Get the text input from query parameter or form
-    
     if request.method == 'POST':
-        text_input = request.form['text_input']
-    
-    # Perform sentiment analysis
-    predicted_sentiment = analyze_sentiment(text_input)
+        text_input = request.form['text_input']  # Get the text input from the form
 
-    if predicted_sentiment == 1:
-        sentiment_label = "Positive sentiment"
-        professional_message = "Have a Happy day! (: "
-    else:
-        sentiment_label = "Negative sentiment"
-        professional_message = "Do not worry! Stay STRONG. Your help is on the way."
+        # Perform sentiment analysis
+        predicted_sentiment = analyze_sentiment(text_input)
 
-    return render_template('integrated_result.html', text_input=text_input, sentiment_label=sentiment_label, professional_message=professional_message)
+        if predicted_sentiment == 1:
+            sentiment_label = "Positive sentiment"
+            professional_message = "Have a Happy day! (: "
+        else:
+            sentiment_label = "Negative sentiment"
+            professional_message = "Do not worry! Stay STRONG. Your help is on the way."
+
+        return render_template('integrated_result.html', text_input=text_input, sentiment_label=sentiment_label, professional_message=professional_message)
+
+    return render_template('integrated_predict.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

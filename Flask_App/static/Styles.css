@@ -1,0 +1,38 @@
+#img1{
+    position: relative;  
+   
+    margin-right: 10vmin;
+    width: 100vmin;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(34,48,195);
+background: linear-gradient(0deg, rgb(55, 70, 227) 25%, rgb(231, 26, 26) 81%);
+    text-align: center;
+    height: 100vh;
+    width: 100vw;;
+}
+h1{
+    font-size: 4.7vmin;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif, Times, serif;
+    margin-top: 5vmin;
+    margin-bottom: 30px;
+}
+.container{
+    height: 70vh;
+    margin-top: 5vmin;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    font-size: 4vmin;
+    color: rgb(255, 255, 255);
+    font-family: Helvetica, sans-serif;
+    margin-top: 1.5vmin;
+}

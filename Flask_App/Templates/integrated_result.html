@@ -2,12 +2,17 @@
 <html>
 <head>
     <title>Result of Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles.css') }}">
+
 </head>
-<body bgcolor="#ffcc00">
-    <img src="Data/Images/AlertBackground.jpeg" alt="Image" width="200">
-    <center><h1 style="color: red;">Results of Sentiment Analysis</h1>
-    <p><strong>Input Text:</strong> {{ text_input }}</p>
-    <p><strong>Sentiment:</strong> {{ sentiment_label }}</p>
-    <p><strong>Professional Message:</strong> {{ professional_message }}</p>
+<body>
+    <img id = "img1" src="{{ url_for('static', filename='AlertBackground.jpeg') }}" alt="Image">
+    <div class="container">
+       <h1>RESULTS OF SENTIMENT ANALYSIS</h1>
+        <p><strong>Input Text:</strong> {{ text_input }}</p>
+        <p><strong>Sentiment:</strong> {{ sentiment_label }}</p>
+        <p>{{ professional_message }}</p>
+    </div>
+    
 </body>
 </html>

@@ -1,0 +1,50 @@
+body{
+    margin-top: 100px;
+    background: rgb(34,48,195);
+    background: linear-gradient(0deg, rgb(55, 70, 227) 25%, rgb(231, 26, 26) 81%);
+    text-align: center;
+    height: 100vh;
+    width: 100vw;;
+}
+h1,h2{
+
+    font-size: 5.5vmin;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif, Times, serif;
+    margin-top: 5.5vmin;
+}
+button,input{
+        margin-top: 27px;
+        height: 10vmin;
+        width: 30vmin;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: 0 0 1rem #000000;
+        font-size: 3.2vmin;
+        font-weight: bold;
+        color: #002aff;
+        transition: all 0.8s ease;
+        background-color: aliceblue;
+        margin-bottom: 20px;
+    
+}
+button:hover{
+    background-color: #002aff;
+    color: aliceblue;
+}
+   
+input:hover{
+    background-color: #002aff;
+    color: aliceblue;
+    
+  
+}
+
+textarea{
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 20px;
+    width: 70vmin;
+   
+    
+}
