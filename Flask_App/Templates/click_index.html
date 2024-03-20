@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency System</title>
+</head>
+<body>
+    <h1>Emergency System</h1>
+    <button onclick="triggerEmergency()">Trigger Emergency</button>
+
+    <script>
+        function triggerEmergency() {
+            fetch('/trigger_emergency')
+                .then(response => response.text())
+                .then(message => alert(message))
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>
