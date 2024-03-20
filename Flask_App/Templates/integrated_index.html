@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech to Text Conversion and Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Speech to Text Conversion</h1>
+    <form action="/convert" method="POST" enctype="multipart/form-data">
+        <input type="file" name="audio_file">
+        <button type="submit">Convert</button>
+    </form>
+    <div>
+        <h2>Converted Text:</h2>
+        <p>{{ converted_text }}</p>
+    </div>
+    <hr>
+    <h1>Sentiment Analysis</h1>
+    <form action="/predict" method="POST">
+        <textarea name="text_input" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Analyze Sentiment">
+    </form>
+</body>
+</html>
