@@ -2,22 +2,51 @@
 <html>
 <head>
     <title>Speech to Text Conversion and Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles2.css') }}">
+   <script>
+        // Function to start speech recognition
+        function startSpeechRecognition() {
+            var recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
+            recognition.lang = 'en-US'; // Set the language to English (US)
+
+            // Event listener for when speech recognition starts
+            recognition.onstart = function() {
+                console.log('Speech recognition started');
+            };
+
+            // Event listener for when speech is recognized
+            recognition.onresult = function(event) {
+                var result = event.results[0][0].transcript; // Get the recognized speech
+                document.getElementById('text_input').value = result; // Set the value of the textarea to the recognized speech
+                recognition.stop(); // Stop speech recognition
+            };
+
+            // Event listener for when speech recognition ends
+            recognition.onend = function() {
+                console.log('Speech recognition ended');
+            };
+
+            // Start speech recognition
+            recognition.start();
+        }
+    </script>
 </head>
 <body>
     <h1>Speech to Text Conversion</h1>
-    <form action="/convert" method="POST" enctype="multipart/form-data">
-        <input type="file" name="audio_file">
-        <button type="submit">Convert</button>
-    </form>
+    <!-- Button to start speech recognition -->
+    <button onclick="startSpeechRecognition()">START RECORDING</button>
+  
     <div>
-        <h2>Converted Text:</h2>
+        <!-- <h2>Converted Text:</h2> -->
         <p>{{ converted_text }}</p>
     </div>
-    <hr>
+    
     <h1>Sentiment Analysis</h1>
     <form action="/predict" method="POST">
-        <textarea name="text_input" rows="4" cols="50"></textarea><br><br>
-        <input type="submit" value="Analyze Sentiment">
+        <!-- Textarea for user input -->
+        <textarea name="text_input" id="text_input" rows="4" cols="50"></textarea><br><br>
+        <!-- Submit button -->
+        <input type="submit" value="ANALYSE">
     </form>
 </body>
 </html>
