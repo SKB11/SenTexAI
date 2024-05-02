@@ -15,7 +15,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load the dataset
-dataset_path = r'/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/s1.csv'
+dataset_path = r'C:\Users\Sharddha K B\SenTexAI-main\Data\Dataset\s1.csv'
 df = pd.read_csv(dataset_path)
 
 # Preprocess the data
@@ -63,7 +63,7 @@ def predict():
         # Perform sentiment analysis
         predicted_sentiment = analyze_sentiment(text_input)
 
-        if predicted_sentiment == 1:
+        if predicted_sentiment == '1':
             sentiment_label = "Positive sentiment"
             professional_message = "Have a Happy day! (: "
         else:
