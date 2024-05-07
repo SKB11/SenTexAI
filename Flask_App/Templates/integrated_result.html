@@ -6,12 +6,15 @@
 
 </head>
 <body>
-    <img id = "img1" src="{{ url_for('static', filename='AlertBackground.jpeg') }}" alt="Image">
+    <img id="img1" src="{{ url_for('static', filename='AlertBackground.jpeg') }}" alt="Image">
     <div class="container">
        <h1>RESULTS OF SENTIMENT ANALYSIS</h1>
         <p><strong>Input Text:</strong> {{ text_input }}</p>
         <p><strong>Sentiment:</strong> {{ sentiment_label }}</p>
         <p>{{ professional_message }}</p>
+        {% if emergency_message %}
+        <p><strong>Emergency Message:</strong> {{ emergency_message }}</p>
+        {% endif %}
     </div>
     
 </body>
