@@ -55,7 +55,7 @@ def analyze_sentiment(input_text):
     elif 'fire' in input_text.lower():
         emergency_message = "An emergency message has been initiated to contact a fire truck."
         return None, emergency_message
-    elif 'thief' in input_text.lower():
+    elif 'thief' in input_text.lower() or 'robber' in input_text.lower() or 'robbing' in input_text.lower():
         emergency_message = "An emergency message has been initiated to contact the police."
         return None, emergency_message
     
@@ -79,19 +79,8 @@ auc = roc_auc_score(y_test, clf_nb.predict_proba(X_test)[:,1])
 accuracy = accuracy_score(y_test, clf_nb.predict(X_test))
 precision = precision_score(y_test, clf_nb.predict(X_test))
 f1 = f1_score(y_test, clf_nb.predict(X_test))
-conf_matrix = confusion_matrix(y_test, clf_nb.predict(X_test))
 recall = recall_score(y_test, clf_nb.predict(X_test))
-
-# Print model evaluation metrics
-print('\nModel Evaluation Metrics:')
-print("AUC:", auc)
-print("Accuracy: {:.3f}%".format(accuracy * 100))
-print("Precision:", precision)
-print("F1 Score:", f1)
-print("Confusion Matrix:\n", conf_matrix)
-print("Recall:", recall)
-
-
+conf_matrix = confusion_matrix(y_test, clf_nb.predict(X_test))
 # Route for homepage
 @app.route('/')
 def index():
