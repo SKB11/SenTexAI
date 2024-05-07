@@ -21,7 +21,7 @@ def preprocess_text(text):
     return preprocessed_text
 
 #Read data - Give data path
-df = pd.read_csv('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/newData.txt', sep='\t', names=['liked', 'text'])
+df = pd.read_csv(' ', sep='\t', names=['liked', 'text'])
 
 # Preprocess the text data
 df['text'] = df['text'].apply(preprocess_text)
@@ -40,7 +40,7 @@ clf_nb = MultinomialNB()
 clf_nb.fit(X_train, y_train)
 
 # Read keywords from file
-with open('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/keywords.txt', 'r') as file:
+with open(' ', 'r') as file:
    keywords = [word.strip() for line in file for word in line.split(',')]
 
 # Initialize Flask app
@@ -79,8 +79,8 @@ auc = roc_auc_score(y_test, clf_nb.predict_proba(X_test)[:,1])
 accuracy = accuracy_score(y_test, clf_nb.predict(X_test))
 precision = precision_score(y_test, clf_nb.predict(X_test))
 f1 = f1_score(y_test, clf_nb.predict(X_test))
-conf_matrix = confusion_matrix(y_test, clf_nb.predict(X_test))
 recall = recall_score(y_test, clf_nb.predict(X_test))
+conf_matrix = confusion_matrix(y_test, clf_nb.predict(X_test))
 # Route for homepage
 @app.route('/')
 def index():
