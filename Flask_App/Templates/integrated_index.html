@@ -29,9 +29,32 @@
             // Start speech recognition
             recognition.start();
         }
+
+        // Function to redirect after 3 clicks
+       // Function to redirect after 3 clicks
+function redirectToResult() {
+    let clickCount = 0;
+    const outputDiv = document.getElementById('output');
+
+    document.getElementById('emergencyButton').addEventListener('click', function() {
+        clickCount++;
+        outputDiv.innerHTML += `Click detected: ${clickCount}<br>`;
+
+        if (clickCount === 3) {
+            window.location.href = "/predict"; // Redirect to the integrated result page
+        }
+    });
+}
+
+
+        // Call the function when the page loads
+        window.onload = redirectToResult;
     </script>
 </head>
-<body>
+<body> <h1>Click Thrice, For Physically Challenged</h1>
+    <button id="emergencyButton"><h4>EMERGENCY</h4></button>
+    <div id="output"></div>
+    
     <h1>Speech to Text Conversion</h1>
     <!-- Button to start speech recognition -->
     <button onclick="startSpeechRecognition()">START RECORDING</button>

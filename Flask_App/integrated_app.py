@@ -1,3 +1,5 @@
+# All the modules work on 3.12.0 version of python
+
 from flask import Flask, render_template, request
 import pandas as pd
 import nltk
@@ -5,10 +7,11 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import roc_auc_score, accuracy_score, confusion_matrix,precision_score,f1_score,recall_score
+from sklearn.metrics import roc_auc_score, accuracy_score, confusion_matrix, precision_score, f1_score, recall_score
 import re
 from nltk.stem import PorterStemmer
-
+from twilio.rest import Client
+import sys
 
 # Define preprocess_text function
 def preprocess_text(text):
@@ -20,7 +23,7 @@ def preprocess_text(text):
     preprocessed_text = ' '.join(tokens)
     return preprocessed_text
 
-#Read data - Give data path
+# Read data - Give data path
 df = pd.read_csv('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/newData.txt', sep='\t', names=['liked', 'text'])
 
 # Preprocess the text data
@@ -41,46 +44,61 @@ clf_nb.fit(X_train, y_train)
 
 # Read keywords from file
 with open('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/keywords.txt', 'r') as file:
-   keywords = [word.strip() for line in file for word in line.split(',')]
+    keywords = [word.strip() for line in file for word in line.split(',')]
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Function for sending SMS notification
+def send_sms_notification(message):
+    # Replace these values with your Twilio credentials and phone numbers
+    account_sid = 'ACa13f657752d57143236caf3d995f5af0' 
+    auth_token = '60e94a1465d3ffb0fef50f07e7dbbef7'
+    from_phone_number = '+12075696420'  # Your Twilio phone number
+    authority_phone_number = '+918431565515'  # The authority's phone number
+
+    # Initialize the Twilio client
+    client = Client(account_sid, auth_token)
+
+    try:
+        message = client.messages.create(
+            body=message,
+            from_=from_phone_number,
+            to=authority_phone_number
+        )
+        print(f"SMS sent to {authority_phone_number}: {message.sid}")
+    except Exception as e:
+        print(f"Failed to send SMS: {str(e)}")
 
 # Function for sentiment analysis
 def analyze_sentiment(input_text):
     # Check for specific phrases
     if 'ambulance' in input_text.lower() or 'labour' in input_text.lower():
         emergency_message = "An emergency message has been initiated to contact an ambulance."
+        send_sms_notification(emergency_message)
         return None, emergency_message
     elif 'fire' in input_text.lower():
         emergency_message = "An emergency message has been initiated to contact a fire truck."
+        send_sms_notification(emergency_message)
         return None, emergency_message
     elif 'thief' in input_text.lower() or 'robber' in input_text.lower() or 'robbing' in input_text.lower():
         emergency_message = "An emergency message has been initiated to contact the police."
+        send_sms_notification(emergency_message)
         return None, emergency_message
     
     # Rule-based classification
     for keyword in keywords:
         if keyword in input_text:
+            send_sms_notification("Negative sentiment detected: " + input_text)
             return 0, None  # Negative sentiment
     
     # Predict sentiment using Naive Bayes
     sentiment_nb = clf_nb.predict(vectorizer.transform([input_text]))
+    if sentiment_nb[0] == 0:  # Negative sentiment
+        send_sms_notification("Negative sentiment detected: " + input_text)
     return sentiment_nb[0], None  # Return the predicted sentiment (1 for positive, 0 for negative)
 
-# to print the model evaluation metrics
-print('\n')
-auc = roc_auc_score(y_test, clf_nb.predict_proba(X_test)[:,1])
-print("Model Evaluation Metrics:")
-print("AUC:", auc)
 
-# Calculate accuracy
-auc = roc_auc_score(y_test, clf_nb.predict_proba(X_test)[:,1])
-accuracy = accuracy_score(y_test, clf_nb.predict(X_test))
-precision = precision_score(y_test, clf_nb.predict(X_test))
-f1 = f1_score(y_test, clf_nb.predict(X_test))
-conf_matrix = confusion_matrix(y_test, clf_nb.predict(X_test))
-recall = recall_score(y_test, clf_nb.predict(X_test))
 # Route for homepage
 @app.route('/')
 def index():
@@ -104,8 +122,9 @@ def predict():
             professional_message = "Do not worry! Stay STRONG. Your help is on the way."
 
         return render_template('integrated_result.html', text_input=text_input, sentiment_label=sentiment_label, professional_message=professional_message, emergency_message=emergency_message)
-
-    return render_template('integrated_predict.html')
+    
+    send_sms_notification("Clicks Detected: Sending emergency message.")
+    return render_template('integrated_result.html', text_input="Clicks Detected (NO TEXT INPUT) ", sentiment_label="Dis-Stress Signal Sent", professional_message="STAY CALM, HELP IS ON THE WAY!")
 
 if __name__ == '__main__':
     app.run(debug=True)

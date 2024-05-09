@@ -1,9 +1,9 @@
 body{
-    margin-top: 100px;
+    margin-top: 50px;
     background: rgb(34,48,195);
     background: linear-gradient(0deg, rgb(55, 70, 227) 25%, rgb(231, 26, 26) 81%);
     text-align: center;
-    height: 100vh;
+    height: 120vh;
     width: 100vw;;
 }
 h1,h2{
@@ -47,4 +47,8 @@ textarea{
     width: 70vmin;
    
     
+}
+h4,button{
+    font-size: 3.0vmin;
+    align-items: center;
 }
