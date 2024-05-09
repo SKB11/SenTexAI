@@ -24,6 +24,8 @@ def preprocess_text(text):
     return preprocessed_text
 
 
+df = pd.read_csv(r'', sep='\t', names=['liked', 'text'])
+#Read data - Give data path
 
 # Preprocess the text data
 df['text'] = df['text'].apply(preprocess_text)
@@ -42,6 +44,8 @@ clf_nb = MultinomialNB()
 clf_nb.fit(X_train, y_train)
 
 # Read keywords from file
+with open(r'', 'r') as file:
+    keywords = [word.strip() for line in file for word in line.split(',')]
 
 
 # Initialize Flask app
