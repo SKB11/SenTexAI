@@ -23,8 +23,7 @@ def preprocess_text(text):
     preprocessed_text = ' '.join(tokens)
     return preprocessed_text
 
-# Read data - Give data path
-df = pd.read_csv('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/newData.txt', sep='\t', names=['liked', 'text'])
+
 
 # Preprocess the text data
 df['text'] = df['text'].apply(preprocess_text)
@@ -43,8 +42,7 @@ clf_nb = MultinomialNB()
 clf_nb.fit(X_train, y_train)
 
 # Read keywords from file
-with open('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/keywords.txt', 'r') as file:
-    keywords = [word.strip() for line in file for word in line.split(',')]
+
 
 # Initialize Flask app
 app = Flask(__name__)
