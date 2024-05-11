@@ -3,8 +3,11 @@
 <head>
     <title>Speech to Text Conversion and Sentiment Analysis</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='Styles2.css') }}">
-   <script>
-        // Function to start speech recognition
+    <script>
+        // Declare variables for audio visualization
+        var canvas, ctx, audioCtx, analyser, bufferLength, dataArray, drawAnimationId;
+
+        // Function to start speech recognition and display waveform graph
         function startSpeechRecognition() {
             var recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
             recognition.lang = 'en-US'; // Set the language to English (US)
@@ -12,6 +15,7 @@
             // Event listener for when speech recognition starts
             recognition.onstart = function() {
                 console.log('Speech recognition started');
+                startAudioVisualization();
             };
 
             // Event listener for when speech is recognized
@@ -24,31 +28,97 @@
             // Event listener for when speech recognition ends
             recognition.onend = function() {
                 console.log('Speech recognition ended');
+                stopAudioVisualization();
             };
 
             // Start speech recognition
             recognition.start();
         }
 
-        // Function to redirect after 3 clicks
-       // Function to redirect after 3 clicks
-function redirectToResult() {
-    let clickCount = 0;
-    const outputDiv = document.getElementById('output');
+        // Function to start audio visualization
+        function startAudioVisualization() {
+            canvas = document.getElementById('waveform');
+            ctx = canvas.getContext('2d');
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 2048;
+            bufferLength = analyser.frequencyBinCount;
+            dataArray = new Uint8Array(bufferLength);
 
-    document.getElementById('emergencyButton').addEventListener('click', function() {
-        clickCount++;
-        outputDiv.innerHTML += `Click detected: ${clickCount}<br>`;
-
-        if (clickCount === 3) {
-            window.location.href = "/predict"; // Redirect to the integrated result page
+            navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+                var source = audioCtx.createMediaStreamSource(stream);
+                source.connect(analyser);
+                draw();
+            });
         }
-    });
-}
 
+        // Function to stop audio visualization
+        function stopAudioVisualization() {
+            cancelAnimationFrame(drawAnimationId); // Cancel the animation frame
+        }
+
+        // Function to draw waveform graph
+        function draw() {
+            var WIDTH = canvas.width;
+            var HEIGHT = canvas.height;
+
+            analyser.getByteTimeDomainData(dataArray);
+            
+            // Create a linear gradient for the waveform color
+            var gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
+            gradient.addColorStop(0, 'rgba(0, 0, 255, 1)'); // Start color (blue)
+            gradient.addColorStop(1, 'rgba(255, 0, 0, 1)'); // End color (red)
+
+            ctx.fillStyle = gradient; // Set gradient as fill style
+            ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'rgb(255,255,255)'; // Set gradient as stroke style
+
+            ctx.beginPath();
+
+            var sliceWidth = WIDTH * 1.0 / bufferLength;
+            var x = 0;
+
+            for(var i = 0; i < bufferLength; i++) {
+                var v = dataArray[i] / 128.0;
+                var y = v * HEIGHT/2;
+
+                if(i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+
+                x += sliceWidth;
+            }
+
+            ctx.lineTo(canvas.width, canvas.height/2);
+            ctx.stroke();
+
+            drawAnimationId = requestAnimationFrame(draw);
+        }
+
+        // Function to redirect after 3 clicks
+        function redirectToResult() {
+            let clickCount = 0;
+            const outputDiv = document.getElementById('output');
+
+            document.getElementById('emergencyButton').addEventListener('click', function() {
+                clickCount++;
+                outputDiv.innerHTML += `Click detected: ${clickCount}<br>`;
+
+                if (clickCount === 3) {
+                    window.location.href = "/predict"; // Redirect to the integrated result page
+                }
+            });
+        }
 
         // Call the function when the page loads
-        window.onload = redirectToResult;
+        window.onload = function() {
+            redirectToResult();
+            startSpeechRecognition();
+        };
     </script>
 </head>
 <body> <h1>Click Thrice, For Physically Challenged</h1>
@@ -71,5 +141,8 @@ function redirectToResult() {
         <!-- Submit button -->
         <input type="submit" value="ANALYSE">
     </form>
+    
+    <!-- Canvas for waveform graph -->
+    <canvas id="waveform" width="1000" height="100"></canvas>
 </body>
 </html>
