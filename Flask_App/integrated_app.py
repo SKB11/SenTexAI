@@ -24,7 +24,7 @@ def preprocess_text(text):
     return preprocessed_text
 
 
-df = pd.read_csv(r'', sep='\t', names=['liked', 'text'])
+df = pd.read_csv('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/newData.txt', sep='\t', names=['liked', 'text'])
 #Read data - Give data path
 
 # Preprocess the text data
@@ -40,12 +40,14 @@ X = vectorizer.fit_transform(df.text)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train Naive Bayes classifier
-clf_nb = MultinomialNB()
+alpha = 1.0  # Laplace smoothing parameter
+clf_nb = MultinomialNB(alpha=alpha)
 clf_nb.fit(X_train, y_train)
 
 # Read keywords from file
-with open(r'', 'r') as file:
+with open('/Users/bharath/Desktop/REVA/SenTexAI/Data/Dataset/keywords.txt', 'r') as file:
     keywords = [word.strip() for line in file for word in line.split(',')]
+
 
 
 # Initialize Flask app
@@ -100,6 +102,13 @@ def analyze_sentiment(input_text):
         send_sms_notification("Negative sentiment detected: " + input_text)
     return sentiment_nb[0], None  # Return the predicted sentiment (1 for positive, 0 for negative)
 
+y_pred = clf_nb.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, y_pred))
+#print auc score
+print('AUC:', roc_auc_score(y_test, y_pred))
+#print confusion matrix
+print('Confusion Matrix:', confusion_matrix(y_test, y_pred))
+
 
 # Route for homepage
 @app.route('/')
@@ -127,6 +136,8 @@ def predict():
     
     send_sms_notification("Clicks Detected: Sending emergency message.")
     return render_template('integrated_result.html', text_input="Clicks Detected (NO TEXT INPUT) ", sentiment_label="Dis-Stress Signal Sent", professional_message="STAY CALM, HELP IS ON THE WAY!")
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
