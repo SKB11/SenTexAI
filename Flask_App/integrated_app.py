@@ -59,11 +59,10 @@ app = Flask(__name__)
 # Function for sending SMS notification
 def send_sms_notification(message):
     # Replace these values with your Twilio credentials and phone numbers
-    account_sid = '' 
-    auth_token = ''
+    account_sid = '' #give your twilio acct id
+    auth_token = '' #give your twilio acct key
     from_phone_number = ''  # Your Twilio phone number
     authority_phone_number = ''  # The authority's phone number
-
 
     # Initialize the Twilio client
     client = Client(account_sid, auth_token)
