@@ -4,9 +4,7 @@
     <title>Speech to Text Conversion and Sentiment Analysis</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='Styles2.css') }}">
     <script>
-        // Declare variables for audio visualization
-        var canvas, ctx, audioCtx, analyser, bufferLength, dataArray, drawAnimationId;
-
+       
         // Function to start speech recognition and display waveform graph
         function startSpeechRecognition() {
             var recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
@@ -21,7 +19,7 @@
 
             // Event listener for when speech is recognized
             recognition.onresult = function(event) {
-                var result = event.results[0][0].transcript; // Get the recognized speech
+                var result = event.results[0][0].transcript; // Get the recognized speech  -- -- propery of SpeechRecognitionAlternative object
                 document.getElementById('text_input').value = result; // Set the value of the textarea to the recognized speech
                 recognition.stop(); // Stop speech recognition
             };
@@ -35,6 +33,10 @@
             // Start speech recognition
             recognition.start();
         }
+
+        
+         // Declare variables for audio visualization
+         var canvas, ctx, audioCtx, analyser, bufferLength, dataArray, drawAnimationId;
 
         // Function to start audio visualization
         function startAudioVisualization() {

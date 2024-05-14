@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request
 import pandas as pd
+import numpy as np
 import nltk
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -58,10 +59,10 @@ app = Flask(__name__)
 # Function for sending SMS notification
 def send_sms_notification(message):
     # Replace these values with your Twilio credentials and phone numbers
-    account_sid = 'ACa13f657752d57143236caf3d995f5af0' 
-    auth_token = 'b07fdd1d2b521a420cb6fd74c34ea0fc'
-    from_phone_number = '+12075696420'  # Your Twilio phone number
-    authority_phone_number = '+918431565515'  # The authority's phone number
+    account_sid = '' 
+    auth_token = ''
+    from_phone_number = ''  # Your Twilio phone number
+    authority_phone_number = ''  # The authority's phone number
 
 
     # Initialize the Twilio client
@@ -106,12 +107,21 @@ def analyze_sentiment(input_text):
     return sentiment_nb[0], None  # Return the predicted sentiment (1 for positive, 0 for negative)
 
 y_pred = clf_nb.predict(X_test)
-print('Accuracy:', accuracy_score(y_test, y_pred))
+accuracy = accuracy_score(y_test, y_pred)
+# Print the accuracy
+print(f'Accuracy: {accuracy:.2%}')
 #print auc score
 print('AUC:', roc_auc_score(y_test, y_pred))
 #print confusion matrix
-print('Confusion Matrix:', confusion_matrix(y_test, y_pred))
-
+conf_matrix = confusion_matrix(y_test, y_pred)
+print('Confusion Matrix:')
+print(np.array2string(conf_matrix, separator=', '))
+#print precision score
+print('Precision:', precision_score(y_test, y_pred))
+#print recall score
+print('Recall:', recall_score(y_test, y_pred))
+#print F1 score
+print('F1:', f1_score(y_test, y_pred))
 
 # Route for homepage
 @app.route('/')
@@ -145,7 +155,7 @@ def predict():
         return render_template('integrated_result.html', text_input=text_input, sentiment_label=sentiment_label, professional_message=professional_message, emergency_message=emergency_message)
     
     send_sms_notification("Clicks Detected: Sending emergency message.")
-    return render_template('integrated_result.html', text_input="Clicks Detected (NO TEXT INPUT) ", sentiment_label="Dis-Stress Signal Sent", professional_message="STAY CALM, HELP IS ON THE WAY!")
+    return render_template('integrated_result.html', text_input="Clicks Detected (NO VOICE INPUT) ", sentiment_label="Dis-Stress Signal Sent", professional_message="STAY CALM, HELP IS ON THE WAY!")
 
 
 
