@@ -13,7 +13,7 @@ h1,h2{
     font-family: 'Times New Roman', Times, serif, Times, serif;
     margin-top: 5.5vmin;
 }
-button,input{
+button,input,select{
         margin-top: 27px;
         height: 10vmin;
         width: 30vmin;
@@ -26,6 +26,7 @@ button,input{
         transition: all 0.8s ease;
         background-color: aliceblue;
         margin-bottom: 20px;
+        vertical-align: middle;
     
 }
 button:hover{
@@ -51,4 +52,9 @@ textarea{
 h4,button{
     font-size: 3.0vmin;
     align-items: center;
+}
+
+select{
+    text-align: center;
+    margin-right: 20px;
 }

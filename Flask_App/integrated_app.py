@@ -12,6 +12,8 @@ import re
 from nltk.stem import PorterStemmer
 from twilio.rest import Client
 import sys
+from langdetect import detect
+from mtranslate import translate
 
 # Define preprocess_text function
 def preprocess_text(text):
@@ -33,7 +35,7 @@ df['text'] = df['text'].apply(preprocess_text)
 # TF-IDF Vectorizer
 vectorizer = TfidfVectorizer(stop_words='english')
 
-y = df.liked
+y = df.liked # Target variable 0 or 1 column
 X = vectorizer.fit_transform(df.text)
 
 # Splitting the dataset
@@ -60,6 +62,7 @@ def send_sms_notification(message):
     auth_token = '' #give your twilio acct key
     from_phone_number = ''  # Your Twilio phone number
     authority_phone_number = ''  # The authority's phone number
+
 
     # Initialize the Twilio client
     client = Client(account_sid, auth_token)
@@ -113,17 +116,24 @@ print('Confusion Matrix:', confusion_matrix(y_test, y_pred))
 # Route for homepage
 @app.route('/')
 def index():
-    converted_text = request.args.get('converted_text', '')  # Get the converted text from query parameter
-    return render_template('integrated_index.html', converted_text=converted_text)
+   # converted_text = request.args.get('converted_text', '')  # Get the converted text from query parameter
+    return render_template('integrated_index.html') #converted_text=converted_text)
 
 # Route for sentiment prediction
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
         text_input = request.form['text_input']  # Get the text input from the form
+        result_lang = detect(text_input)
+        if result_lang != 'en':
+            translate_text = translate(text_input, 'en')
+        else:
+            translate_text = text_input 
+
+        
 
         # Perform sentiment analysis
-        predicted_sentiment, emergency_message = analyze_sentiment(text_input)
+        predicted_sentiment, emergency_message = analyze_sentiment(translate_text)
 
         if predicted_sentiment == 1:
             sentiment_label = "Positive sentiment"

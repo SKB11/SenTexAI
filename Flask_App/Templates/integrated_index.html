@@ -10,7 +10,8 @@
         // Function to start speech recognition and display waveform graph
         function startSpeechRecognition() {
             var recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
-            recognition.lang = 'en-US'; // Set the language to English (US)
+            var selectedLang = document.getElementById('languageSelect').value; // Get the selected language from the dropdown
+            recognition.lang = selectedLang; // Set the language based on the selected option
 
             // Event listener for when speech recognition starts
             recognition.onstart = function() {
@@ -117,7 +118,6 @@
         // Call the function when the page loads
         window.onload = function() {
             redirectToResult();
-            startSpeechRecognition();
         };
     </script>
 </head>
@@ -126,13 +126,16 @@
     <div id="output"></div>
     
     <h1>Speech to Text Conversion</h1>
+    <!-- Dropdown list for selecting language -->
+    <select id="languageSelect">
+        <option value="en-US">English</option>
+        <option value="kn-IN">Kannada</option>
+        <option value="hi-IN">Hindi</option>
+        <option value="te-IN">Telugu</option>
+    </select>
     <!-- Button to start speech recognition -->
     <button onclick="startSpeechRecognition()">START RECORDING</button>
   
-    <div>
-        <!-- <h2>Converted Text:</h2> -->
-        <p>{{ converted_text }}</p>
-    </div>
     
     <h1>Sentiment Analysis</h1>
     <form action="/predict" method="POST">
